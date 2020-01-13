@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="BalanceQuery">
+    <output-path>$PROJECT_DIR$/out/artifacts/BalanceQuery</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="BalanceQuery/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="BalanceQuery" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
