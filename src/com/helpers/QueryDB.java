@@ -126,7 +126,12 @@ public class QueryDB {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
                                         unlimitedBalance_types.add(new Unlimited_Balance_Types("RideON Package", "active", resultSet.getString("expiry")));
-                                } else if (balance_type.equals("Ten4Ten Data")) {
+                                }else if (balance_type.contains("Staff_AlwaysON")){
+                                    int balance = resultSet.getInt("balance");
+                                    if (balance >= 1)
+                                        unlimitedBalance_types.add(new Unlimited_Balance_Types("Staff AlwaysON Package", "active", null));
+                                }
+                                else if (balance_type.equals("Ten4Ten Data")) {
                                     double balance = resultSet.getDouble("balance");
                                     String expiry = resultSet.getString("expiry");
                                     dataBalance_types.add(new Data_Balance_Type(WEEKEND_BUNDLE, balance / KB, expiry));
