@@ -72,18 +72,20 @@ public class QueryDB {
                                     if (databalanceType.equals("small")) {
                                         sub_data_balance += resultSet.getDouble("balance");
                                         if (sub_data_balance > 0) no_sub_data = false;
-                                        sub_data_expiry = resultSet.getString("expiry");
+                                       // sub_data_expiry = resultSet.getString("expiry");
+                                        sub_data_expiry = "01-01-1970 00:01:00";
                                     } else {
                                         main_data_balance += resultSet.getDouble("balance");
                                     }
                                     no_maindata = (main_data_balance <= 0);
-                                    main_data_expiry = resultSet.getString("expiry");
+                                    //main_data_expiry = resultSet.getString("expiry");
+                                    main_data_expiry = "01-01-1970 00:01:00";
 
-                                } else if (balance_type.equals("Autorecovery")) {
+                                } /*else if (balance_type.equals("Autorecovery")) {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1) autorecovery = true;
 
-                                } else if (balance_type.equals("ULDayNitePlan Status") || balance_type.equals("ULBusiness2 Status")) {
+                                }*/ else if (balance_type.equals("ULDayNitePlan Status") || balance_type.equals("ULBusiness2 Status")) {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
                                         unlimitedBalance_types.add(new Unlimited_Balance_Types("Unlimited Data", "active", resultSet.getString("expiry")));
