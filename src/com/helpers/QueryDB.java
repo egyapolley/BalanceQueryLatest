@@ -24,6 +24,7 @@ public class QueryDB {
         boolean autorecovery = false;
         double main_data_balance = 0;
         String main_data_expiry = "";
+        String surfplusCountExpiry="";
 
 
         boolean empty = true;
@@ -81,11 +82,11 @@ public class QueryDB {
                                     //main_data_expiry = resultSet.getString("expiry");
                                     main_data_expiry = "01-01-1970 00:01:00";
 
-                                } /*else if (balance_type.equals("Autorecovery")) {
+                                } else if (balance_type.equals("Surfplus Count")) {
                                     int balance = resultSet.getInt("balance");
-                                    if (balance >= 1) autorecovery = true;
+                                    if (balance >= 1) surfplusCountExpiry = resultSet.getString("expiry");
 
-                                }*/ else if (balance_type.equals("ULDayNitePlan Status") || balance_type.equals("ULBusiness2 Status")) {
+                                } else if (balance_type.equals("ULDayNitePlan Status") || balance_type.equals("ULBusiness2 Status")) {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
                                         unlimitedBalance_types.add(new Unlimited_Balance_Types("Unlimited Data", "active", resultSet.getString("expiry")));
@@ -169,7 +170,8 @@ public class QueryDB {
 
                             if (!no_sub_data) {
 
-                                String sub_data_expiry1 = sub_data_expiry.equals("01-01-1970 00:01:00") ? "" : sub_data_expiry;
+                                //String sub_data_expiry1 = sub_data_expiry.equals("01-01-1970 00:01:00") ? "" : sub_data_expiry;
+                                String sub_data_expiry1 = surfplusCountExpiry.equals("01-01-1970 00:01:00") ? "" : surfplusCountExpiry;
                                 dataBalance_types.add(new Data_Balance_Type(DATA_WALLET, sub_data_balance / KB, sub_data_expiry1));
                             }
 
@@ -179,7 +181,8 @@ public class QueryDB {
                                 String dateformat = FormatExpiryDate.dateformate(main_data_expiry1);
                                 dataBalance_types.add(new Data_Balance_Type(DATA_WALLET, main_data_balance / KB, dateformat.equals("") ? null : dateformat));
                             } else if (!no_maindata) {
-                                String main_data_expiry1 = main_data_expiry.equals("01-01-1970 00:01:00") ? "" : main_data_expiry;
+                                //String main_data_expiry1 = main_data_expiry.equals("01-01-1970 00:01:00") ? "" : main_data_expiry;
+                                String main_data_expiry1 = surfplusCountExpiry.equals("01-01-1970 00:01:00") ? "" : surfplusCountExpiry;
                                 dataBalance_types.add(new Data_Balance_Type(DATA_WALLET, main_data_balance / KB, main_data_expiry1.equals("") ? null : main_data_expiry1));
                             } else {
                                 dataBalance_types.add(new Data_Balance_Type(DATA_WALLET, 0, null));
