@@ -82,7 +82,7 @@ public class QueryDB {
                                     //main_data_expiry = resultSet.getString("expiry");
                                     main_data_expiry = "01-01-1970 00:01:00";
 
-                                } else if (balance_type.equals("Surfplus Count")) {
+                                } else if (balance_type.equals("Bundle ExpiryTrack Status")) {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1) surfplusCountExpiry = resultSet.getString("expiry");
 

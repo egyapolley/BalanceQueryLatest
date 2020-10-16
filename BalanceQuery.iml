@@ -19,21 +19,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Processing (JSR 353)" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Binding" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - RESTful Web Service" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Processing (JSR 353)" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Binding" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - RESTful Web Service" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Processing (JSR 353)" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Binding" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - RESTful Web Service" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Processing (JSR 353)" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Binding" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - RESTful Web Service" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Processing (JSR 353)" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - JSON Binding" level="application_server_libraries" />
-    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.0 - RESTful Web Service" level="application_server_libraries" />
+    <orderEntry type="library" name="JAX-RS-2.1.1" level="project" />
+    <orderEntry type="library" name="javax.json.bind-api-1.0" level="project" />
+    <orderEntry type="library" name="javax.json.processing-1.1.4" level="project" />
   </component>
 </module>
