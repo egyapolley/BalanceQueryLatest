@@ -18,7 +18,6 @@ public class CheckBalance {
     public FinalResult checkBalance(@PathParam("id") String callingMsisdn)
     {
         QueryDB queryDB=new QueryDB() ;
-        FinalResult getbalances = queryDB.getbalances(callingMsisdn);
-        return getbalances;
+        return queryDB.getbalances(callingMsisdn);
     }
 }

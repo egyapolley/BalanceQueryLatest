@@ -23,8 +23,9 @@ public class QueryDB {
         FinalResult sucessResult = new FinalResult();
         boolean autorecovery = false;
         double main_data_balance = 0;
+        double main_cash_balance = 0;
         String main_data_expiry = "";
-        String surfplusCountExpiry="";
+        String surfplusCountExpiry = "";
 
 
         boolean empty = true;
@@ -73,7 +74,7 @@ public class QueryDB {
                                     if (databalanceType.equals("small")) {
                                         sub_data_balance += resultSet.getDouble("balance");
                                         if (sub_data_balance > 0) no_sub_data = false;
-                                       // sub_data_expiry = resultSet.getString("expiry");
+                                        // sub_data_expiry = resultSet.getString("expiry");
                                         sub_data_expiry = "01-01-1970 00:01:00";
                                     } else {
                                         main_data_balance += resultSet.getDouble("balance");
@@ -125,23 +126,27 @@ public class QueryDB {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
                                         unlimitedBalance_types.add(new Unlimited_Balance_Types("AlwaysON STREAMER Package", "active", resultSet.getString("expiry")));
+                                } else if (balance_type.equals("UL_AlwaysON_Maxi Status")) {
+                                    int balance = resultSet.getInt("balance");
+                                    if (balance >= 1)
+                                        unlimitedBalance_types.add(new Unlimited_Balance_Types("AlwaysON MAXI Package", "active", resultSet.getString("expiry")));
                                 } else if (balance_type.equals("Taxify Status")) {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
                                         unlimitedBalance_types.add(new Unlimited_Balance_Types("RideON Package", "active", resultSet.getString("expiry")));
-                                }else if (balance_type.contains("Staff_AlwaysON")){
+                                } else if (balance_type.contains("Staff_AlwaysON")) {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
                                         unlimitedBalance_types.add(new Unlimited_Balance_Types("Staff AlwaysON Package", "active", null));
-                                }
-                                else if (balance_type.equals("Ten4Ten Data")) {
+                                } else if (balance_type.equals("Ten4Ten Data")) {
                                     double balance = resultSet.getDouble("balance");
                                     String expiry = resultSet.getString("expiry");
                                     dataBalance_types.add(new Data_Balance_Type(WEEKEND_BUNDLE, balance / KB, expiry));
 
-                                } else if (balance_type.equals("General Cash")) {
+                                } else if (balance_type.endsWith("Cash")) {
                                     no_cash = false;
-                                    dataBalance_types.add(new Data_Balance_Type(CASH_WALLET, resultSet.getDouble("balance") / 100.0, null));
+                                    main_cash_balance += resultSet.getDouble("balance") / 100.0;
+
 
                                 } else {
                                     double balance = resultSet.getDouble("balance");
@@ -165,6 +170,8 @@ public class QueryDB {
 
                             if (no_cash) {
                                 dataBalance_types.add(new Data_Balance_Type(CASH_WALLET, 0, null));
+                            } else {
+                                dataBalance_types.add(new Data_Balance_Type(CASH_WALLET, main_cash_balance, null));
                             }
 
 

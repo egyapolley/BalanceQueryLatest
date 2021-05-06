@@ -9,6 +9,7 @@
         <webroots>
           <root url="file://$MODULE_DIR$/web" relative="/" />
         </webroots>
+        <sourceRoots />
       </configuration>
     </facet>
   </component>
@@ -22,5 +23,8 @@
     <orderEntry type="library" name="JAX-RS-2.1.1" level="project" />
     <orderEntry type="library" name="javax.json.bind-api-1.0" level="project" />
     <orderEntry type="library" name="javax.json.processing-1.1.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.1 - JSON Processing (JSR 353)" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.1 - JSON Binding" level="application_server_libraries" />
+    <orderEntry type="library" scope="PROVIDED" name="GlassFish 5.0.1 - JAX RESTful Web Services" level="application_server_libraries" />
   </component>
 </module>
