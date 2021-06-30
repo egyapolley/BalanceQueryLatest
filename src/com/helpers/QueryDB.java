@@ -33,6 +33,9 @@ public class QueryDB {
         boolean no_maindata = true;
         boolean no_sub_data = true;
 
+        Data_Balance_Type payWeekly = null;
+
+
 
         double sub_data_balance = 0;
         String sub_data_expiry = "";
@@ -148,7 +151,16 @@ public class QueryDB {
                                     main_cash_balance += resultSet.getDouble("balance") / 100.0;
 
 
-                                } else {
+
+                                } else if (balance_type.equals("Pay Weekly Data")){
+                                    payWeekly = new Data_Balance_Type();
+                                    double balance = resultSet.getDouble("balance");
+                                    payWeekly.setName("Pay Weekly Data");
+                                    payWeekly.setBalance(balance/KB);
+                                    payWeekly.setExpiry_date(null);
+                                }
+
+                                else {
                                     double balance = resultSet.getDouble("balance");
 
                                     String expiry1 = resultSet.getString("expiry");
@@ -180,6 +192,14 @@ public class QueryDB {
                                 //String sub_data_expiry1 = sub_data_expiry.equals("01-01-1970 00:01:00") ? "" : sub_data_expiry;
                                 String sub_data_expiry1 = surfplusCountExpiry.equals("01-01-1970 00:01:00") ? "" : surfplusCountExpiry;
                                 dataBalance_types.add(new Data_Balance_Type(DATA_WALLET, sub_data_balance / KB, sub_data_expiry1));
+                            }
+
+                            if (payWeekly != null && !surfplusCountExpiry.isEmpty() && !surfplusCountExpiry.equals("01-01-1970 00:01:00")){
+                                payWeekly.setExpiry_date(surfplusCountExpiry);
+                                dataBalance_types.add(payWeekly);
+
+                            }else if (payWeekly != null){
+                                dataBalance_types.add(payWeekly);
                             }
 
 
