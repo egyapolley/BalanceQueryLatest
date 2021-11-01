@@ -133,6 +133,10 @@ public class QueryDB {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
                                         unlimitedBalance_types.add(new Unlimited_Balance_Types("AlwaysON MAXI Package", "active", resultSet.getString("expiry")));
+                                } else if (balance_type.equals("AfterHours Status")) {
+                                    int balance = resultSet.getInt("balance");
+                                    if (balance >= 1)
+                                        unlimitedBalance_types.add(new Unlimited_Balance_Types("AfterHours Package", "active", resultSet.getString("expiry")));
                                 } else if (balance_type.equals("Taxify Status")) {
                                     int balance = resultSet.getInt("balance");
                                     if (balance >= 1)
