@@ -77,4 +77,5 @@ public class FinalResult {
     public void setDataBalance_types(List<Data_Balance_Type> dataBalance_types) {
         this.dataBalance_types = dataBalance_types;
     }
+
 }

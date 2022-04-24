@@ -1,11 +1,13 @@
 package com.helpers;
 
 import javax.json.bind.annotation.JsonbNillable;
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
 @JsonbNillable
 @JsonbPropertyOrder({"name","status","expiry"})
 public class Unlimited_Balance_Types {
+
 
     private String name;
     private String status;
